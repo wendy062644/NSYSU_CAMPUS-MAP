@@ -8,3 +8,6 @@ def roads(request):
 
 def school_roads(request):
     return render(request, 'Taoyuan.geojson')
+
+def buildings(request):
+    return render(request, 'Buildings.geojson')

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>道路標記範例</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <style>
@@ -15,6 +16,7 @@
     }
   </style>
 </head>
+
 <body>
   <div id="map"></div>
 
@@ -44,6 +46,25 @@
           }
         }).addTo(map);
       });
+
+    // 載入建築物資料
+    fetch("Buildings.geojson")  // <== 這是你要準備的建築 GeoJSON 檔案
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: {
+            color: "red",
+            weight: 2,
+            fillOpacity: 0  // 透明填色，只留紅色邊框
+          },
+          onEachFeature: function (feature, layer) {
+            layer.on('click', function () {
+              alert("你點到了建築物：" + (feature.properties.name || "未命名建築"));
+            });
+          }
+        }).addTo(map);
+      });
   </script>
 </body>
+
 </html>

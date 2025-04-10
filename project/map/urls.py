@@ -5,4 +5,5 @@ urlpatterns = [
     path("", views.index),
     path("Gushan.geojson", views.roads),
     path("Taoyuan.geojson", views.school_roads),
+    path("Buildings.geojson", views.buildings),
 ]
