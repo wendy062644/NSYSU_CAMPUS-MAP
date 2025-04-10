@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>道路標記範例</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <style>
+    #map {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    // 1. 設定地圖座標
+    var map = L.map('map').setView([22.6247, 120.2661], 17);
+
+    // 2. 使用 OpenStreetMap 地圖底圖
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 3. 載入外部 GeoJSON 檔案
+    fetch("Taoyuan.geojson")
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: {
+            color: "blue",
+            weight: 3
+          },
+          onEachFeature: function (feature, layer) {
+            layer.on('click', function () {
+              alert("你點到了道路：" + (feature.properties.name || "未命名道路"));
+            });
+          }
+        }).addTo(map);
+      });
+  </script>
+</body>
+</html>
