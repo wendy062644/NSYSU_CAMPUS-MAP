@@ -1,70 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 
 <head>
   <meta charset="utf-8" />
-  <title>道路標記範例</title>
+  <title>建築物搜尋地圖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS & JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="{% static 'map.css' %}" />
+  <script src="{% static 'map.js' %}" defer></script>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <style>
-    #map {
-      height: 100vh;
-    }
-  </style>
 </head>
 
 <body>
+  <div class="sidebar">
+    <h2>地圖搜尋</h2>
+    <div class="form-group">
+      <label for="searchInput">輸入建築名稱</label>
+      <input type="text" id="searchInput" placeholder="輸入建築名稱" oninput="showSuggestions()" />
+      <div id="suggestions"></div>
+    </div>
+    <div class="form-group">
+      <label for="dropdown">選擇建築</label>
+      <select id="dropdown" onchange="selectFeature(this.value)">
+        <option value="">－請選擇建築－</option>
+      </select>
+    </div>
+  </div>
+
   <div id="map"></div>
 
-  <script>
-    // 1. 設定地圖座標
-    var map = L.map('map').setView([22.6247, 120.2661], 17);
-
-    // 2. 使用 OpenStreetMap 地圖底圖
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // 3. 載入外部 GeoJSON 檔案
-    fetch("Taoyuan.geojson")
-      .then(response => response.json())
-      .then(data => {
-        L.geoJSON(data, {
-          style: {
-            color: "blue",
-            weight: 3
-          },
-          onEachFeature: function (feature, layer) {
-            layer.on('click', function () {
-              alert("你點到了道路：" + (feature.properties.name || "未命名道路"));
-            });
-          }
-        }).addTo(map);
-      });
-
-    // 載入建築物資料
-    fetch("Buildings.geojson")  // <== 這是你要準備的建築 GeoJSON 檔案
-      .then(response => response.json())
-      .then(data => {
-        L.geoJSON(data, {
-          style: {
-            color: "red",
-            weight: 2,
-            fillOpacity: 0  // 透明填色，只留紅色邊框
-          },
-          onEachFeature: function (feature, layer) {
-            layer.on('click', function () {
-              alert("你點到了建築物：" + (feature.properties.name || "未命名建築"));
-            });
-          }
-        }).addTo(map);
-      });
-  </script>
 </body>
 
 </html>
