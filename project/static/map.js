@@ -12,8 +12,11 @@ fetch("Taoyuan.geojson")
     L.geoJSON(data, {
       style: { color: "blue", weight: 3 },
       onEachFeature: (feature, layer) => {
-        layer.on('click', () => {
-          alert("你點到了道路：" + (feature.properties.name || "未命名道路"));
+        layer.on('click', e => {
+          const clickedLatLng = e.latlng; // 使用者點擊的位置
+          const clickedCoord = [clickedLatLng.lng, clickedLatLng.lat];
+          const nearest = findNearestNode(clickedCoord); // 找最近節點
+          handlePointClick(e, nearest);
         });
       }
     }).addTo(map);
@@ -32,7 +35,8 @@ fetch("Taoyuan.geojson")
           addEdge(key1, key2, dist);
           addEdge(key2, key1, dist);
 
-          coordinates.push(from, to);
+          coordinates.push(from);
+          coordinates.push(to);
         }
       }
     });
@@ -62,16 +66,33 @@ fetch("Buildings.geojson")
       onEachFeature: (feature, layer) => {
         const name = feature.properties.name || "未命名建築";
         const item = { name, layer };
+        const desc = feature.properties.description || "尚無建築介紹";
         buildings.push(item);
         tempList.push(item);
 
         layer.on('click', () => {
-          alert("你點到了建築物：" + name);
+          const center = layer.getBounds().getCenter();
+          const html = `
+            <strong>${name}</strong><br>
+            ${desc}<br>
+            <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+              目前位置出發
+            </button>
+          `;
+          layer.bindPopup(html).openPopup();
+        });
+
+        layer.on('popupopen', () => {
+          layer.setStyle({ color: "green" });
+        });
+
+        layer.on('popupclose', () => {
+          layer.setStyle({ color: "red" });
         });
       }
     }).addTo(map);
 
-    // 🔠 排序後加入選單
+    // 排序後加入選單
     tempList.sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant')).forEach(b => {
       const option = document.createElement("option");
       option.value = b.name;
@@ -88,7 +109,17 @@ function searchFeature() {
   if (found) {
     map.fitBounds(found.layer.getBounds());
     found.layer.setStyle({ color: "orange" });
-    found.layer.bindPopup(`找到：${found.name}`).openPopup();
+    const desc = found.layer.feature.properties.description || "尚無建築介紹";
+    const center = found.layer.getBounds().getCenter();
+    const html = `
+      <strong>${found.name}</strong><br>
+      ${desc}<br>
+      <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+        目前位置出發
+      </button>
+    `;
+    found.layer.bindPopup(html).openPopup();
+    document.getElementById("searchInput").value = "";
   } else {
     alert("找不到符合的建築！");
   }
@@ -99,7 +130,17 @@ function selectFeature(name) {
   if (found) {
     map.fitBounds(found.layer.getBounds());
     found.layer.setStyle({ color: "green" });
-    found.layer.bindPopup(`選擇：${found.name}`).openPopup();
+    
+    const desc = found.layer.feature.properties.description || "尚無建築介紹";
+    const center = found.layer.getBounds().getCenter();
+    const html = `
+      <strong>${found.name}</strong><br>
+      ${desc}<br>
+      <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+        目前位置出發
+      </button>
+    `;
+    found.layer.bindPopup(html).openPopup();
   }
 }
 
@@ -122,7 +163,7 @@ function showSuggestions() {
         b.layer.setStyle({ color: "orange" });
         b.layer.bindPopup(`找到：${b.name}`).openPopup();
         suggestions.innerHTML = "";
-        document.getElementById("searchInput").value = b.name;
+        document.getElementById("searchInput").value = "";
       };
       suggestions.appendChild(div);
     });
@@ -136,14 +177,83 @@ function toggleSidebar() {
   toggle.classList.toggle("collapsed");
 }
 
-const graph = {}; // 用鄰接表建立圖
-const coordinates = []; // 儲存所有點
+const graph = {};
+const coordinates = [];
 
 let startCoord = null;
 let endCoord = null;
 let routeLine = null;
 let markerStart = null;
 let markerEnd = null;
+
+function navigateToBuilding(endCoordRaw) {
+  const endCoord = [parseFloat(endCoordRaw[0]), parseFloat(endCoordRaw[1])];
+
+  if (!startCoord) {
+    alert("請先點選地圖上的一個起點（例如道路節點）");
+    return;
+  }
+
+  // 記得：Leaflet 是 lat,lng 但我們資料是 [lng, lat]
+  if (markerEnd) map.removeLayer(markerEnd);
+  markerEnd = L.circleMarker(endCoord.slice().reverse(), {
+    radius: 8, color: "orange", fillColor: "orange", fillOpacity: 0.9
+  }).addTo(map).bindPopup("終點").openPopup();
+
+  const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
+  if (routeLine) map.removeLayer(routeLine);
+  routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
+    color: "orange", weight: 4
+  }).addTo(map);
+}
+
+function routeFromCurrentLocation(endCoord) {
+  if (!navigator.geolocation) {
+    alert("您的瀏覽器不支援 GPS 定位");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const userCoord = [lng, lat];
+
+    // 找最近的道路節點當作實際起點
+    const nearest = findNearestNode(userCoord);
+    startCoord = nearest;
+
+    if (markerStart) map.removeLayer(markerStart);
+    markerStart = L.circleMarker([lat, lng], {
+      radius: 8, color: "orange", fillColor: "blue", fillOpacity: 0.9
+    }).addTo(map).bindPopup("目前位置（起點）").openPopup();
+
+    if (markerEnd) map.removeLayer(markerEnd);
+    markerEnd = L.circleMarker(endCoord.slice().reverse(), {
+      radius: 8, color: "orange", fillColor: "orange", fillOpacity: 0.9
+    }).addTo(map).bindPopup("目的地").openPopup();
+
+    const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
+    if (routeLine) map.removeLayer(routeLine);
+    routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
+      color: "orange", weight: 4
+    }).addTo(map);
+  }, () => {
+    alert("無法取得您目前的位置");
+  });
+}
+
+function findNearestNode(coord) {
+  let minDist = Infinity;
+  let nearest = null;
+  coordinates.forEach(c => {
+    const d = turf.distance(turf.point(coord), turf.point(c));
+    if (d < minDist) {
+      minDist = d;
+      nearest = c;
+    }
+  });
+  return nearest;
+}
 
 function addEdge(a, b, distance) {
   if (!graph[a]) graph[a] = [];
@@ -173,7 +283,7 @@ function handlePointClick(e, coord) {
     const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
     if (routeLine) map.removeLayer(routeLine);
     routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
-      color: "red", weight: 4
+      color: "green", weight: 4
     }).addTo(map);
   } else {
     alert("起點與終點已選定，請重新整理或點擊清除");
@@ -187,24 +297,6 @@ function clearRoute() {
   startCoord = null;
   endCoord = null;
 }
-
-data.features.forEach(feature => {
-  if (feature.geometry.type === "LineString") {
-    const coords = feature.geometry.coordinates;
-    for (let i = 0; i < coords.length - 1; i++) {
-      const from = coords[i];
-      const to = coords[i + 1];
-      const dist = turf.distance(turf.point(from), turf.point(to)); // km
-
-      const key1 = coordKey(from);
-      const key2 = coordKey(to);
-      addEdge(key1, key2, dist);
-      addEdge(key2, key1, dist);
-
-      coordinates.push(from, to);
-    }
-  }
-});
 
 function dijkstra(graph, start, end) {
   const dist = {}, prev = {}, visited = {};
