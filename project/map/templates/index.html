@@ -10,10 +10,13 @@
   <link rel="stylesheet" href="{% static 'map.css' %}" />
   <script src="{% static 'map.js' %}" defer></script>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 </head>
 
 <body>
-  <div class="sidebar">
+  <button id="toggleSidebar" onclick="toggleSidebar()">☰</button>
+
+  <div id="sidebar" class="sidebar">
     <h2>地圖搜尋</h2>
     <div class="form-group">
       <label for="searchInput">輸入建築名稱</label>
@@ -25,6 +28,9 @@
       <select id="dropdown" onchange="selectFeature(this.value)">
         <option value="">－請選擇建築－</option>
       </select>
+    </div>
+    <div class="form-group button-group">
+      <button onclick="clearRoute()">清除路線</button>
     </div>
   </div>
 
