@@ -72,10 +72,12 @@ fetch("Buildings.geojson")
 
         layer.on('click', () => {
           const center = layer.getBounds().getCenter();
+          const buildingCoord = [center.lng, center.lat];
+          const nearestEnd = findNearestNode(buildingCoord);
           const html = `
             <strong>${name}</strong><br>
             ${desc}<br>
-            <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+            <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
               目前位置出發
             </button>
           `;
@@ -114,7 +116,7 @@ function searchFeature() {
     const html = `
       <strong>${found.name}</strong><br>
       ${desc}<br>
-      <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+      <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
         目前位置出發
       </button>
     `;
@@ -136,7 +138,7 @@ function selectFeature(name) {
     const html = `
       <strong>${found.name}</strong><br>
       ${desc}<br>
-      <button onclick="routeFromCurrentLocation([${center.lng}, ${center.lat}])">
+      <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
         目前位置出發
       </button>
     `;
@@ -208,23 +210,23 @@ function navigateToBuilding(endCoordRaw) {
 }
 
 function routeFromCurrentLocation(endCoord) {
-  if (!navigator.geolocation) {
-    alert("您的瀏覽器不支援 GPS 定位");
+  endCoord = endCoord.slice();
+
+  // 確保 graph 已建好
+  if (Object.keys(graph).length === 0) {
+    alert("道路資料尚未初始化，請稍後再試");
     return;
   }
 
-  navigator.geolocation.getCurrentPosition(pos => {
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
-    const userCoord = [lng, lat];
-
-    // 找最近的道路節點當作實際起點
-    const nearest = findNearestNode(userCoord);
+  // 使用 currentLocation（已經透過 GPS 或手動設定）
+  if (currentLocation) {
+    const nearest = findNearestNode(currentLocation); // 對齊起點
     startCoord = nearest;
 
+    const [lat, lng] = [currentLocation[1], currentLocation[0]];
     if (markerStart) map.removeLayer(markerStart);
     markerStart = L.circleMarker([lat, lng], {
-      radius: 8, color: "orange", fillColor: "blue", fillOpacity: 0.9
+      radius: 8, color: "blue", fillColor: "blue", fillOpacity: 0.9
     }).addTo(map).bindPopup("目前位置（起點）").openPopup();
 
     if (markerEnd) map.removeLayer(markerEnd);
@@ -233,12 +235,54 @@ function routeFromCurrentLocation(endCoord) {
     }).addTo(map).bindPopup("目的地").openPopup();
 
     const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
+    if (!pathCoords || pathCoords.length === 0) {
+      alert("找不到導航路徑");
+      return;
+    }
+
     if (routeLine) map.removeLayer(routeLine);
     routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
-      color: "orange", weight: 4
+      color: "green", weight: 4
+    }).addTo(map);
+    return;
+  }
+
+  // 若尚未設定 currentLocation，嘗試 GPS
+  if (!navigator.geolocation) {
+    alert("您的瀏覽器不支援 GPS 定位");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    currentLocation = [lng, lat];
+
+    const nearest = findNearestNode(currentLocation);
+    startCoord = nearest;
+
+    if (markerStart) map.removeLayer(markerStart);
+    markerStart = L.circleMarker([lat, lng], {
+      radius: 8, color: "blue", fillColor: "blue", fillOpacity: 0.9
+    }).addTo(map).bindPopup("目前位置（GPS）").openPopup();
+
+    if (markerEnd) map.removeLayer(markerEnd);
+    markerEnd = L.circleMarker(endCoord.slice().reverse(), {
+      radius: 8, color: "orange", fillColor: "orange", fillOpacity: 0.9
+    }).addTo(map).bindPopup("目的地").openPopup();
+
+    const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
+    if (!pathCoords || pathCoords.length === 0) {
+      alert("找不到導航路徑");
+      return;
+    }
+
+    if (routeLine) map.removeLayer(routeLine);
+    routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
+      color: "green", weight: 4
     }).addTo(map);
   }, () => {
-    alert("無法取得您目前的位置");
+    alert("無法取得目前位置");
   });
 }
 
@@ -266,6 +310,25 @@ function coordKey(coord) {
 
 // 點擊道路點以選擇起點或終點
 function handlePointClick(e, coord) {
+  if (currentLocation && startCoord) {
+    if (!endCoord) {
+      endCoord = coord;
+      if (markerEnd) map.removeLayer(markerEnd);
+      markerEnd = L.circleMarker(coord.slice().reverse(), {
+        radius: 8, color: "orange", fillColor: "orange", fillOpacity: 0.9
+      }).addTo(map).bindPopup("終點").openPopup();
+
+      const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
+      if (routeLine) map.removeLayer(routeLine);
+      routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
+        color: "green", weight: 4
+      }).addTo(map);
+    } else {
+      alert("起點與終點已選定，請重新整理或點擊清除");
+    }
+    return; // ❗不要讓 currentLocation 狀態下重設起點
+  }
+
   if (!startCoord) {
     startCoord = coord;
     if (markerStart) map.removeLayer(markerStart);
@@ -279,7 +342,6 @@ function handlePointClick(e, coord) {
       radius: 8, color: "orange", fillColor: "orange", fillOpacity: 0.9
     }).addTo(map).bindPopup("終點").openPopup();
 
-    // 找路徑並畫出來
     const pathCoords = dijkstra(graph, coordKey(startCoord), coordKey(endCoord));
     if (routeLine) map.removeLayer(routeLine);
     routeLine = L.polyline(pathCoords.map(c => c.slice().reverse()), {
@@ -294,8 +356,24 @@ function clearRoute() {
   if (markerStart) map.removeLayer(markerStart);
   if (markerEnd) map.removeLayer(markerEnd);
   if (routeLine) map.removeLayer(routeLine);
-  startCoord = null;
-  endCoord = null;
+
+  endCoord = null; // 只清終點
+
+  // 如果有 currentLocation，則重新設定 startCoord 為最近節點
+  if (currentLocation) {
+    startCoord = findNearestNode(currentLocation);
+
+    // 可重新顯示起點標記
+    const [lat, lng] = [currentLocation[1], currentLocation[0]];
+    markerStart = L.circleMarker([lat, lng], {
+      radius: 8,
+      color: "blue",
+      fillColor: "blue",
+      fillOpacity: 0.9
+    }).addTo(map).bindPopup("目前位置（重新設定）");
+  } else {
+    startCoord = null; // 只有在完全沒 currentLocation 才清掉
+  }
 }
 
 function dijkstra(graph, start, end) {
@@ -331,4 +409,63 @@ function dijkstra(graph, start, end) {
   }
 
   return path.map(key => key.split(',').map(Number)); // [lon, lat]
+}
+
+let currentLocation = null;
+let manualClickHandler = null;
+
+function setCurrentLocationByGPS() {
+  if (!navigator.geolocation) {
+    alert("您的瀏覽器不支援 GPS 定位");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    currentLocation = [lng, lat];
+
+    // 更新顯示
+    document.getElementById("currentLocationDisplay").innerText =
+      `GPS定位座標：(${lat.toFixed(6)}, ${lng.toFixed(6)})`;
+
+    // 顯示在地圖上
+    if (markerStart) map.removeLayer(markerStart);
+    markerStart = L.circleMarker([lat, lng], {
+      radius: 8,
+      color: "blue",
+      fillColor: "blue",
+      fillOpacity: 0.9
+    }).addTo(map).bindPopup("目前位置（GPS）").openPopup();
+
+  }, () => {
+    alert("無法取得目前位置");
+  });
+}
+
+function enableClickToSetCurrent() { // location
+  alert("請在地圖上點選作為目前位置");
+
+  if (manualClickHandler) map.off('click', manualClickHandler);
+
+  manualClickHandler = function (e) {
+    const { lat, lng } = e.latlng;
+    currentLocation = [lng, lat];
+
+    document.getElementById("currentLocationDisplay").innerText = 
+      `手動點選座標：(${lat.toFixed(6)}, ${lng.toFixed(6)})`;
+
+    // 可選擇在地圖上標示
+    if (markerStart) map.removeLayer(markerStart);
+    markerStart = L.circleMarker([lat, lng], {
+      radius: 8,
+      color: "blue",
+      fillColor: "blue",
+      fillOpacity: 0.9
+    }).addTo(map).bindPopup("目前位置（手動選取）").openPopup();
+
+    map.off('click', manualClickHandler); // 只設定一次
+  };
+
+  map.on('click', manualClickHandler);
 }
