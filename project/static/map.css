@@ -36,6 +36,14 @@ body {
   color: #333;
 }
 
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar.hidden ~ #map {
+  left: 0;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -118,4 +126,31 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+#toggleSidebar {
+  position: absolute;
+  top: 90px;
+  left: 330px;
+  transform: translateX(0);
+  transition: transform 0.3s ease, background 0.3s, color 0.3s;
+  z-index: 1100;
+
+  background: white;
+  color: #007bff;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#toggleSidebar:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#toggleSidebar.collapsed {
+  left: 10px;
 }
