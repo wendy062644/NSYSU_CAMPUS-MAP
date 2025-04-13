@@ -1,2 +1,2 @@
 # NSYSU_CAMPUS-MAP
-![image](https://github.com/user-attachments/assets/65826d79-7a3d-4bad-8482-a58c08666c85)
+![image](https://github.com/user-attachments/assets/ea68cdd7-dc0a-4067-a17a-93b5fc84ff6e)
