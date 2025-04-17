@@ -78,7 +78,7 @@ fetch("Buildings.geojson")
           const html = `
             <span style="font-size: 22px; font-weight: bold;">${name}</span>
             <div class="hashtags">
-              <span class="hashtag">${hashtags.join(" ")}</span>
+              ${hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join(' ')}
             </div><br>
             <span style="font-size: 14px;">${desc}</span><br><br>
             <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
@@ -123,11 +123,10 @@ function searchFeature() {
     map.fitBounds(found.layer.getBounds());
     found.layer.setStyle({ color: "orange" });
     const desc = found.layer.feature.properties.description || "尚無建築介紹";
-    const hashtags = found.hashtags ? found.hashtags.join(" ") : "";
     const html = `
       <span style="font-size: 22px; font-weight: bold;">${found.name}</span>
       <div class="hashtags">
-        <span class="hashtag">${hashtags.join(" ")}</span>
+          ${found.hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join(' ')}
       </div><br>
       <span style="font-size: 14px;">${desc}</span><br>
       <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
@@ -155,7 +154,7 @@ function selectFeature(name) {
     const html = `
       <span style="font-size: 22px; font-weight: bold;">${found.name}</span>
       <div class="hashtags">
-        <span class="hashtag">${found.hashtags.join(" ")}</span>
+          ${found.hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join(' ')}
       </div><br>
       <span style="font-size: 14px;">${desc}</span><br>
       <button onclick="routeFromCurrentLocation([${endCoord[0]}, ${endCoord[1]}])">
@@ -189,7 +188,23 @@ function showSuggestions() {
       div.onclick = () => {
         map.fitBounds(b.layer.getBounds());
         b.layer.setStyle({ color: "orange" });
-        b.layer.bindPopup(`<b>${b.name}</b><br><small>${b.hashtags.join(" ")}</small>`).openPopup();
+
+        const center = b.layer.getBounds().getCenter();
+        const endCoord = [center.lng, center.lat];
+        const desc = b.layer.feature.properties.description || "尚無建築介紹";
+
+        const html = `
+          <span style="font-size: 22px; font-weight: bold;">${b.name}</span>
+          <div class="hashtags">
+            ${b.hashtags.map(tag => `<span class="hashtag">${tag}</span>`).join(' ')}
+          </div><br>
+          <span style="font-size: 14px;">${desc}</span><br>
+          <button onclick="routeFromCurrentLocation([${endCoord[0]}, ${endCoord[1]}])">
+            目前位置出發
+          </button>
+        `;
+
+        b.layer.bindPopup(html).openPopup();
         suggestions.innerHTML = "";
         document.getElementById("searchInput").value = "";
       };
