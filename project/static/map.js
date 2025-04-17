@@ -65,7 +65,8 @@ fetch("Buildings.geojson")
       },
       onEachFeature: (feature, layer) => {
         const name = feature.properties.name || "未命名建築";
-        const item = { name, layer };
+        const hashtags = feature.properties.hashtags || [];
+        const item = { name, layer, hashtags };
         const desc = feature.properties.description || "尚無建築介紹";
         buildings.push(item);
         tempList.push(item);
@@ -75,8 +76,11 @@ fetch("Buildings.geojson")
           const buildingCoord = [center.lng, center.lat];
           const nearestEnd = findNearestNode(buildingCoord);
           const html = `
-            <strong>${name}</strong><br>
-            ${desc}<br>
+            <span style="font-size: 22px; font-weight: bold;">${name}</span>
+            <div class="hashtags">
+              <span class="hashtag">${hashtags.join(" ")}</span>
+            </div><br>
+            <span style="font-size: 14px;">${desc}</span><br><br>
             <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
               目前位置出發
             </button>
@@ -107,15 +111,25 @@ function searchFeature() {
   const keyword = document.getElementById("searchInput").value.trim();
   if (!keyword) return;
 
-  const found = buildings.find(b => b.name.includes(keyword));
+  const found = buildings.find(b => 
+    b.name.toLowerCase().includes(keyword) ||
+    (b.hashtags && b.hashtags.some(tag => {
+      const cleanTag = tag.replace(/^#/, '').toLowerCase();
+      return cleanTag.includes(keyword) || keyword.includes(cleanTag);
+    }))
+  );
+
   if (found) {
     map.fitBounds(found.layer.getBounds());
     found.layer.setStyle({ color: "orange" });
     const desc = found.layer.feature.properties.description || "尚無建築介紹";
-    const center = found.layer.getBounds().getCenter();
+    const hashtags = found.hashtags ? found.hashtags.join(" ") : "";
     const html = `
-      <strong>${found.name}</strong><br>
-      ${desc}<br>
+      <span style="font-size: 22px; font-weight: bold;">${found.name}</span>
+      <div class="hashtags">
+        <span class="hashtag">${hashtags.join(" ")}</span>
+      </div><br>
+      <span style="font-size: 14px;">${desc}</span><br>
       <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
         目前位置出發
       </button>
@@ -132,13 +146,19 @@ function selectFeature(name) {
   if (found) {
     map.fitBounds(found.layer.getBounds());
     found.layer.setStyle({ color: "green" });
-    
-    const desc = found.layer.feature.properties.description || "尚無建築介紹";
+
     const center = found.layer.getBounds().getCenter();
+    const endCoord = [center.lng, center.lat];
+
+    const desc = found.layer.feature.properties.description || "尚無建築介紹";
+
     const html = `
-      <strong>${found.name}</strong><br>
-      ${desc}<br>
-      <button onclick="routeFromCurrentLocation([${nearestEnd[0]}, ${nearestEnd[1]}])">
+      <span style="font-size: 22px; font-weight: bold;">${found.name}</span>
+      <div class="hashtags">
+        <span class="hashtag">${found.hashtags.join(" ")}</span>
+      </div><br>
+      <span style="font-size: 14px;">${desc}</span><br>
+      <button onclick="routeFromCurrentLocation([${endCoord[0]}, ${endCoord[1]}])">
         目前位置出發
       </button>
     `;
@@ -154,7 +174,13 @@ function showSuggestions() {
   if (!keyword) return;
 
   buildings
-    .filter(b => b.name.toLowerCase().includes(keyword))
+  .filter(b => 
+    b.name.toLowerCase().includes(keyword) ||
+    (b.hashtags && b.hashtags.some(tag => {
+      const cleanTag = tag.replace(/^#/, '').toLowerCase();
+      return cleanTag.includes(keyword) || keyword.includes(cleanTag);
+    }))
+  )
     .sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'))
     .forEach(b => {
       const div = document.createElement("div");
@@ -163,7 +189,7 @@ function showSuggestions() {
       div.onclick = () => {
         map.fitBounds(b.layer.getBounds());
         b.layer.setStyle({ color: "orange" });
-        b.layer.bindPopup(`找到：${b.name}`).openPopup();
+        b.layer.bindPopup(`<b>${b.name}</b><br><small>${b.hashtags.join(" ")}</small>`).openPopup();
         suggestions.innerHTML = "";
         document.getElementById("searchInput").value = "";
       };
