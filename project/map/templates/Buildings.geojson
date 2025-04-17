@@ -79,7 +79,13 @@
         ]
       },
       "properties": {
-        "source": "survey;Bing"
+        "building": "SEISHI Bay",
+        "name": "西子灣海水浴場",
+        "name:zh": "西子灣海水浴場",
+        "name:zh-Hans": "西子灣海水浴場",
+        "name:zh-Hant": "西子灣海水浴場",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -128,11 +134,13 @@
         ]
       },
       "properties": {
-        "building": "grandstand",
-        "name": "看臺",
-        "name:zh": "看臺",
-        "name:zh-Hans": "看台",
-        "name:zh-Hant": "看臺"
+        "building": "Second fitness center",
+        "name": "第二體適能中心",
+        "name:zh": "第二體適能中心",
+        "name:zh-Hans": "第二體適能中心",
+        "name:zh-Hant": "第二體適能中心",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -206,7 +214,9 @@
         "name:zh": "國立中山大學籃球場",
         "name:zh-Hans": "国立中山大学篮球场",
         "name:zh-Hant": "國立中山大學籃球場",
-        "sport": "basketball"
+        "sport": "basketball",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -279,7 +289,10 @@
         "name": "溜冰場",
         "name:en": "Skating Rink",
         "name:zh": "溜冰場",
-        "sport": "ice_skating"
+        "sport": "ice_skating",
+        "hashtags": [],
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -401,7 +414,9 @@
         "name:zh": "中山大學足球場",
         "name:zh-Hans": "中山大学足球场",
         "name:zh-Hant": "中山大學足球場",
-        "sport": "soccer"
+        "sport": "soccer",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -557,7 +572,14 @@
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -590,7 +612,13 @@
       },
       "properties": {
         "leisure": "swimming_pool",
-        "location": "outdoor"
+        "location": "outdoor",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -629,7 +657,8 @@
         "name:en": "Swimming Pool, NSYSU",
         "name:zh": "國立中山大學游泳池",
         "name:zh-Hans": "国立中山大学游泳池",
-        "name:zh-Hant": "國立中山大學游泳池"
+        "name:zh-Hant": "國立中山大學游泳池",
+        "hashtags": ["#游泳", "#泳池"]
       }
     },
     {
@@ -667,7 +696,9 @@
         "name:en": "Tennis Court, NSYSU",
         "name:zh": "國立中山大學網球場",
         "name:zh-Hant": "国立中山大学网球场",
-        "sport": "tennis"
+        "sport": "tennis",
+        "hashtags": [],
+        "name:zh-Hans": ""
       }
     },
     {
@@ -705,7 +736,9 @@
         "name:zh": "國立中山大學排球場",
         "name:zh-Hans": "国立中山大学排球场",
         "name:zh-Hant": "國立中山大學排球場",
-        "sport": "volleyball"
+        "sport": "volleyball",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -743,7 +776,9 @@
         "name:zh": "國立中山大學排球場",
         "name:zh-Hans": "国立中山大学排球场",
         "name:zh-Hant": "國立中山大學排球場",
-        "sport": "volleyball"
+        "sport": "volleyball",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -785,7 +820,9 @@
         "name:zh": "國立中山大學籃球場",
         "name:zh-Hans": "国立中山大学篮球场",
         "name:zh-Hant": "國立中山大學籃球場",
-        "sport": "basketball"
+        "sport": "basketball",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -840,7 +877,8 @@
         "name:zh": "棒壘球場",
         "name:zh-Hans": "棒垒球场",
         "name:zh-Hant": "棒壘球場",
-        "sport": "baseball"
+        "sport": "baseball",
+        "hashtags": []
       }
     },
     {
@@ -893,7 +931,9 @@
         "name": "看臺",
         "name:zh": "看臺",
         "name:zh-Hans": "看台",
-        "name:zh-Hant": "看臺"
+        "name:zh-Hant": "看臺",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -943,7 +983,12 @@
       },
       "properties": {
         "building": "grandstand",
-        "name": "看臺"
+        "name": "看臺",
+        "hashtags": [],
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -976,7 +1021,13 @@
         ]
       },
       "properties": {
-        "barrier": "wall"
+        "barrier": "wall",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1009,7 +1060,13 @@
         ]
       },
       "properties": {
-        "barrier": "wall"
+        "barrier": "wall",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1053,7 +1110,13 @@
         "barrier": "bollard",
         "bicycle": "yes",
         "foot": "yes",
-        "motor_vehicle": "no"
+        "motor_vehicle": "no",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1091,7 +1154,13 @@
         "bicycle": "no",
         "building": "yes",
         "foot": "no",
-        "motor_vehicle": "yes"
+        "motor_vehicle": "yes",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1144,7 +1213,13 @@
         ]
       },
       "properties": {
-        "amenity": "motorcycle_parking"
+        "amenity": "motorcycle_parking",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1177,7 +1252,13 @@
         ]
       },
       "properties": {
-        "amenity": "motorcycle_parking"
+        "amenity": "motorcycle_parking",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1210,7 +1291,13 @@
         ]
       },
       "properties": {
-        "amenity": "parking"
+        "amenity": "parking",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1251,7 +1338,13 @@
         ]
       },
       "properties": {
-        "building": "yes"
+        "building": "yes",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -1355,63 +1448,8 @@
         "operator": "國立中山大學",
         "tourism": "attraction",
         "wikidata": "Q697968",
-        "wikipedia": "zh:西子灣"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              120.2611261,
-              22.622927
-            ],
-            [
-              120.2641822,
-              22.6243906
-            ],
-            [
-              120.2642599,
-              22.624285
-            ],
-            [
-              120.2649393,
-              22.6242816
-            ],
-            [
-              120.264897,
-              22.6241637
-            ],
-            [
-              120.2642373,
-              22.6241656
-            ],
-            [
-              120.2622135,
-              22.6232026
-            ],
-            [
-              120.2622032,
-              22.6226016
-            ],
-            [
-              120.2611261,
-              22.622927
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "access": "yes",
-        "amenity": "parking",
-        "capacity": "150",
-        "fee": "yes",
-        "operator": "海堤停車場",
-        "operator:type": "university",
-        "parking": "surface",
-        "payment:cash": "yes"
+        "wikipedia": "zh:西子灣",
+        "hashtags": []
       }
     },
     {
@@ -1579,7 +1617,14 @@
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -1617,7 +1662,8 @@
         "name:en": "Administration Building",
         "name:zh": "行政大樓",
         "name:zh-Hans": "行政大楼",
-        "name:zh-Hant": "行政大樓"
+        "name:zh-Hant": "行政大樓",
+        "hashtags": []
       }
     },
     {
@@ -1733,7 +1779,8 @@
         "name:en": "Student Center",
         "name:zh": "學生活動中心",
         "name:zh-Hans": "学生活动中心",
-        "name:zh-Hant": "學生活動中心"
+        "name:zh-Hant": "學生活動中心",
+        "hashtags": []
       }
     },
     {
@@ -1836,7 +1883,8 @@
         "name:en": "College of Social Sciences and Management",
         "name:zh": "社會科學與管理學院",
         "name:zh-Hans": "社会科学与管理学院",
-        "name:zh-Hant": "社會科學與管理學院"
+        "name:zh-Hant": "社會科學與管理學院",
+        "hashtags": []
       }
     },
     {
@@ -1902,7 +1950,8 @@
         "name:en": "Siziwan Sunset Beach Resort",
         "name:zh": "西子灣沙灘會館",
         "name:zh-Hans": "西子湾沙滩会馆",
-        "name:zh-Hant": "西子灣沙灘會館"
+        "name:zh-Hant": "西子灣沙灘會館",
+        "hashtags": []
       }
     },
     {
@@ -1940,7 +1989,8 @@
         "name:en": "Sun Yat-sen Hall",
         "name:zh": "逸仙館",
         "name:zh-Hans": "逸仙馆",
-        "name:zh-Hant": "逸仙館"
+        "name:zh-Hant": "逸仙館",
+        "hashtags": []
       }
     },
     {
@@ -1983,7 +2033,8 @@
         "name:en": "Info-Library Building",
         "name:zh": "圖資大樓",
         "name:zh-Hans": "图资大楼",
-        "name:zh-Hant": "圖資大樓"
+        "name:zh-Hant": "圖資大樓",
+        "hashtags": ["#圖書館", "#IL", "#圖IL", "#新西灣學院", "#SW", "#西SW"]
       }
     },
     {
@@ -2021,7 +2072,8 @@
         "name:en": "Gymnasium, NSYSU",
         "name:zh": "中山大學體育館",
         "name:zh-Hans": "中山大学体育馆",
-        "name:zh-Hant": "中山大學體育館"
+        "name:zh-Hant": "中山大學體育館",
+        "hashtags": ["#健身房", "#一健", "#體適能", "#排球", "#羽毛球", "#籃球", "#桌球", "#韻律教室", "#視聽教室"]
       }
     },
     {
@@ -2100,7 +2152,8 @@
         "name:en": "College of Sciences and Engineering",
         "name:zh": "理工學院",
         "name:zh-Hans": "理工学院",
-        "name:zh-Hant": "理工學院"
+        "name:zh-Hant": "理工學院",
+        "hashtags": []
       }
     },
     {
@@ -2162,7 +2215,8 @@
         "name:en": "International Building",
         "name:zh": "國際研究大樓",
         "name:zh-Hans": "国际研究大楼",
-        "name:zh-Hant": "國際研究大樓"
+        "name:zh-Hant": "國際研究大樓",
+        "hashtags": []
       }
     },
     {
@@ -2233,7 +2287,8 @@
         "name:en": "Chiang Kai Shek Memorial Villa",
         "name:zh": "蔣介石行館（蔣公行館）西灣藝廊",
         "name:zh-Hans": "蒋介石行馆（蒋公行馆）西湾艺廊",
-        "name:zh-Hant": "蔣介石行館（蔣公行館）西灣藝廊"
+        "name:zh-Hant": "蔣介石行館（蔣公行館）西灣藝廊",
+        "hashtags": []
       }
     },
     {
@@ -2283,44 +2338,9 @@
         "name:zh": "教職員停車場",
         "name:zh-Hans": "教职员停车场",
         "name:zh-Hant": "教職員停車場",
-        "parking": "surface"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              120.2649259,
-              22.6276065
-            ],
-            [
-              120.2639701,
-              22.6276449
-            ],
-            [
-              120.2638746,
-              22.6275941
-            ],
-            [
-              120.2637751,
-              22.6275838
-            ],
-            [
-              120.2637216,
-              22.6274369
-            ],
-            [
-              120.2649259,
-              22.6276065
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "waterway": "ditch"
+        "parking": "surface",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2358,7 +2378,9 @@
         "name:zh-Hans": "水池",
         "name:zh-Hant": "水池",
         "natural": "water",
-        "water": "pond"
+        "water": "pond",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2406,7 +2428,8 @@
         "name:zh-Hans": "国立中山大学附设高雄市私立幼儿园",
         "name:zh-Hant": "國立中山大學附設高雄市私立幼兒園",
         "operator": "國立中山大學",
-        "website": "https://nursery.nsysu.edu.tw/"
+        "website": "https://nursery.nsysu.edu.tw/",
+        "hashtags": []
       }
     },
     {
@@ -2504,7 +2527,12 @@
       },
       "properties": {
         "building": "yes",
-        "name": "中華民國國徽"
+        "name": "中華民國國徽",
+        "hashtags": [],
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -2546,7 +2574,8 @@
         "name:zh": "菩提樹下廣場",
         "name:zh-Hans": "菩提树下广场",
         "name:zh-Hant": "菩提樹下廣場",
-        "place": "square"
+        "place": "square",
+        "hashtags": []
       }
     },
     {
@@ -2612,7 +2641,9 @@
         "name:zh-Hant": "國立中山大學西子灣海域運動中心",
         "operator": "國立中山大學",
         "operator:type": "government",
-        "wheelchair": "yes"
+        "wheelchair": "yes",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2648,7 +2679,13 @@
         "amenity": "parking",
         "fee": "no",
         "parking": "surface",
-        "park_ride": "no"
+        "park_ride": "no",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -2689,7 +2726,9 @@
         "name": "中山貨櫃創業基地",
         "name:zh": "中山貨櫃創業基地",
         "name:zh-Hans": "中山货柜创业基地",
-        "name:zh-Hant": "中山貨櫃創業基地"
+        "name:zh-Hant": "中山貨櫃創業基地",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2770,7 +2809,9 @@
         "name": "機車停車場",
         "name:zh": "機車停車場",
         "name:zh-Hans": "机车停车场",
-        "name:zh-Hant": "機車停車場"
+        "name:zh-Hant": "機車停車場",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2835,7 +2876,9 @@
         "name": "機車停車場",
         "name:zh": "機車停車場",
         "name:zh-Hans": "机车停车场",
-        "name:zh-Hant": "機車停車場"
+        "name:zh-Hant": "機車停車場",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2872,7 +2915,9 @@
         "name": "管理學院停車場",
         "name:zh": "管理學院停車場",
         "name:zh-Hans": "管理学院停车场",
-        "name:zh-Hant": "管理學院停車場"
+        "name:zh-Hant": "管理學院停車場",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -2905,7 +2950,13 @@
         ]
       },
       "properties": {
-        "leisure": "park"
+        "leisure": "park",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -2942,7 +2993,13 @@
         ]
       },
       "properties": {
-        "natural": "heath"
+        "natural": "heath",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -3003,7 +3060,13 @@
         ]
       },
       "properties": {
-        "natural": "heath"
+        "natural": "heath",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -3044,7 +3107,13 @@
         ]
       },
       "properties": {
-        "amenity": "motorcycle_parking"
+        "amenity": "motorcycle_parking",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -3077,7 +3146,13 @@
         ]
       },
       "properties": {
-        "building": "university"
+        "building": "university",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -3111,6 +3186,7 @@
       },
       "properties": {
         "building": "university",
+        "hashtags": ["#電資", "#EC", "#工EC"],
         "name": "電資大樓",
         "name:en": "Building of Electrical Engineering",
         "name:zh": "電資大樓",
@@ -3179,7 +3255,8 @@
         "name:en": "Building L",
         "name:zh": "翠亨山莊L棟",
         "name:zh-Hans": "翠亨山庄L栋",
-        "name:zh-Hant": "翠亨山莊L棟"
+        "name:zh-Hant": "翠亨山莊L棟",
+        "hashtags": []
       }
     },
     {
@@ -3281,7 +3358,8 @@
         "name:en": "Building of Marine Environment and Engineering",
         "name:zh": "海工館 & 通識中心",
         "name:zh-Hans": "海工馆 & 通识中心",
-        "name:zh-Hant": "海工館 & 通識中心"
+        "name:zh-Hant": "海工館 & 通識中心",
+        "hashtags": ["#海工", "#通識", "#舊西灣學院", "#GE", "#通GE", "#綜合大樓"]
       }
     },
     {
@@ -3353,7 +3431,8 @@
         "name:en": "Building H",
         "name:zh": "翠亨山莊H棟",
         "name:zh-Hans": "翠亨山庄H栋",
-        "name:zh-Hant": "翠亨山莊H棟"
+        "name:zh-Hant": "翠亨山莊H棟",
+        "hashtags": []
       }
     },
     {
@@ -3527,7 +3606,8 @@
         "name:en": "Male Dorm - Wu-ling Villa No.1",
         "name:zh": "武嶺一村",
         "name:zh-Hans": "武岭一村",
-        "name:zh-Hant": "武嶺一村"
+        "name:zh-Hant": "武嶺一村",
+        "hashtags": []
       }
     },
     {
@@ -3613,7 +3693,8 @@
         "name:en": "Male Dorm - Tsui-heng Villa",
         "name:zh": "翠亨山莊",
         "name:zh-Hans": "翠亨山庄",
-        "name:zh-Hant": "翠亨山莊"
+        "name:zh-Hant": "翠亨山莊",
+        "hashtags": []
       }
     },
     {
@@ -3699,7 +3780,8 @@
         "name:en": "Male Dorm - Tsui-heng Villa",
         "name:zh": "翠亨山莊",
         "name:zh-Hans": "翠亨山庄",
-        "name:zh-Hant": "翠亨山莊"
+        "name:zh-Hant": "翠亨山莊",
+        "hashtags": []
       }
     },
     {
@@ -3809,7 +3891,8 @@
         "name:en": "Male Dorm - Tsui-heng Villa",
         "name:zh": "翠亨山莊",
         "name:zh-Hans": "翠亨山庄",
-        "name:zh-Hant": "翠亨山莊"
+        "name:zh-Hant": "翠亨山莊",
+        "hashtags": []
       }
     },
     {
@@ -3927,7 +4010,8 @@
         "name:en": "Male Dorm",
         "name:zh": "男生宿舍",
         "name:zh-Hans": "男生宿舍",
-        "name:zh-Hant": "男生宿舍"
+        "name:zh-Hant": "男生宿舍",
+        "hashtags": []
       }
     },
     {
@@ -4117,7 +4201,8 @@
         "name:en": "Male Dorm - Tsui-heng Villa",
         "name:zh": "翠亨山莊",
         "name:zh-Hans": "翠亨山庄",
-        "name:zh-Hant": "翠亨山莊"
+        "name:zh-Hant": "翠亨山莊",
+        "hashtags": []
       }
     },
     {
@@ -4163,7 +4248,13 @@
       },
       "properties": {
         "amenity": "parking",
-        "parking": "surface"
+        "parking": "surface",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -4260,7 +4351,9 @@
         "name": "汙水處理廠",
         "name:zh": "汙水處理廠",
         "name:zh-Hans": "污水处理厂",
-        "name:zh-Hant": "汙水處理廠"
+        "name:zh-Hant": "汙水處理廠",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -4297,64 +4390,13 @@
         ]
       },
       "properties": {
-        "natural": "heath"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              120.2637216,
-              22.6274369
-            ],
-            [
-              120.263677,
-              22.6274131
-            ],
-            [
-              120.2636214,
-              22.627404
-            ],
-            [
-              120.2635731,
-              22.6274091
-            ],
-            [
-              120.2634774,
-              22.6273863
-            ],
-            [
-              120.2634075,
-              22.6273766
-            ],
-            [
-              120.2633081,
-              22.6273476
-            ],
-            [
-              120.2631878,
-              22.6272843
-            ],
-            [
-              120.2630616,
-              22.6273121
-            ],
-            [
-              120.2629328,
-              22.6273665
-            ],
-            [
-              120.2637216,
-              22.6274369
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "waterway": "drain"
+        "natural": "heath",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -4392,7 +4434,8 @@
         "name:en": "Building of Engineering",
         "name:zh": "理工大樓",
         "name:zh-Hans": "理工大楼",
-        "name:zh-Hant": "理工大樓"
+        "name:zh-Hant": "理工大樓",
+        "hashtags": []
       }
     },
     {
@@ -4430,7 +4473,8 @@
         "name:en": "Faculty and Staff Dormitory",
         "name:zh": "職員宿舍",
         "name:zh-Hans": "职员宿舍",
-        "name:zh-Hant": "職員宿舍"
+        "name:zh-Hant": "職員宿舍",
+        "hashtags": []
       }
     },
     {
@@ -4484,7 +4528,8 @@
         "name:en": "Faculty and Staff Dormitory",
         "name:zh": "職員宿舍",
         "name:zh-Hans": "职员宿舍",
-        "name:zh-Hant": "職員宿舍"
+        "name:zh-Hant": "職員宿舍",
+        "hashtags": []
       }
     },
     {
@@ -4538,7 +4583,8 @@
         "name:en": "Faculty and Staff Dormitory",
         "name:zh": "職員宿舍",
         "name:zh-Hans": "职员宿舍",
-        "name:zh-Hant": "職員宿舍"
+        "name:zh-Hant": "職員宿舍",
+        "hashtags": []
       }
     },
     {
@@ -4614,7 +4660,14 @@
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -4645,521 +4698,14 @@
           ]
         ]
       },
-      "properties": {}
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              120.2692734,
-              22.6272309
-            ],
-            [
-              120.2692124,
-              22.6271469
-            ],
-            [
-              120.2691254,
-              22.6271009
-            ],
-            [
-              120.2690864,
-              22.6271689
-            ],
-            [
-              120.2690274,
-              22.6271849
-            ],
-            [
-              120.2689394,
-              22.6271779
-            ],
-            [
-              120.2688574,
-              22.6271409
-            ],
-            [
-              120.2686874,
-              22.6269539
-            ],
-            [
-              120.2686094,
-              22.6268199
-            ],
-            [
-              120.2685744,
-              22.6267759
-            ],
-            [
-              120.2684364,
-              22.6266439
-            ],
-            [
-              120.2683414,
-              22.6264469
-            ],
-            [
-              120.2682814,
-              22.6263489
-            ],
-            [
-              120.2681484,
-              22.6261379
-            ],
-            [
-              120.2679724,
-              22.6258239
-            ],
-            [
-              120.2678704,
-              22.6257439
-            ],
-            [
-              120.2678004,
-              22.6256889
-            ],
-            [
-              120.2677814,
-              22.6254699
-            ],
-            [
-              120.2677454,
-              22.6253329
-            ],
-            [
-              120.2677514,
-              22.6252259
-            ],
-            [
-              120.2677404,
-              22.6250959
-            ],
-            [
-              120.2675934,
-              22.6249159
-            ],
-            [
-              120.2675714,
-              22.6248139
-            ],
-            [
-              120.2675394,
-              22.6247379
-            ],
-            [
-              120.2674244,
-              22.6245789
-            ],
-            [
-              120.2673494,
-              22.6243819
-            ],
-            [
-              120.2673184,
-              22.6241349
-            ],
-            [
-              120.2672724,
-              22.6240059
-            ],
-            [
-              120.2672214,
-              22.6237889
-            ],
-            [
-              120.2670384,
-              22.6234719
-            ],
-            [
-              120.2669894,
-              22.6234079
-            ],
-            [
-              120.2668234,
-              22.6231959
-            ],
-            [
-              120.2667424,
-              22.6230219
-            ],
-            [
-              120.2667374,
-              22.6229559
-            ],
-            [
-              120.2667874,
-              22.6225039
-            ],
-            [
-              120.2667634,
-              22.6224469
-            ],
-            [
-              120.2666954,
-              22.6223589
-            ],
-            [
-              120.2666764,
-              22.6222899
-            ],
-            [
-              120.2666734,
-              22.6219009
-            ],
-            [
-              120.2666654,
-              22.6218419
-            ],
-            [
-              120.2666724,
-              22.6215889
-            ],
-            [
-              120.2666574,
-              22.6214849
-            ],
-            [
-              120.2666544,
-              22.6212839
-            ],
-            [
-              120.2666794,
-              22.6211089
-            ],
-            [
-              120.2667354,
-              22.6209619
-            ],
-            [
-              120.2667584,
-              22.6208689
-            ],
-            [
-              120.2668524,
-              22.6206189
-            ],
-            [
-              120.2669494,
-              22.6204829
-            ],
-            [
-              120.2669564,
-              22.6203919
-            ],
-            [
-              120.2671134,
-              22.6202589
-            ],
-            [
-              120.2671314,
-              22.6202069
-            ],
-            [
-              120.2671824,
-              22.6201669
-            ],
-            [
-              120.2672124,
-              22.6201689
-            ],
-            [
-              120.2672994,
-              22.6200709
-            ],
-            [
-              120.2672554,
-              22.6200329
-            ],
-            [
-              120.2672714,
-              22.6200159
-            ],
-            [
-              120.2672314,
-              22.6199819
-            ],
-            [
-              120.2669904,
-              22.6194209
-            ],
-            [
-              120.2668516,
-              22.6192354
-            ],
-            [
-              120.2668124,
-              22.6190869
-            ],
-            [
-              120.2667334,
-              22.6189389
-            ],
-            [
-              120.2665694,
-              22.6186349
-            ],
-            [
-              120.2664959,
-              22.6183386
-            ],
-            [
-              120.2669434,
-              22.6183919
-            ],
-            [
-              120.2675844,
-              22.6190989
-            ],
-            [
-              120.2678204,
-              22.6193599
-            ],
-            [
-              120.2678734,
-              22.6198139
-            ],
-            [
-              120.2686424,
-              22.6206989
-            ],
-            [
-              120.2688254,
-              22.6209099
-            ],
-            [
-              120.2689554,
-              22.6224839
-            ],
-            [
-              120.2689744,
-              22.6227169
-            ],
-            [
-              120.2690794,
-              22.6231039
-            ],
-            [
-              120.2691204,
-              22.6241119
-            ],
-            [
-              120.2691464,
-              22.6242359
-            ],
-            [
-              120.2691604,
-              22.6243069
-            ],
-            [
-              120.2691984,
-              22.6244929
-            ],
-            [
-              120.2694424,
-              22.6249259
-            ],
-            [
-              120.2695994,
-              22.6251399
-            ],
-            [
-              120.2697344,
-              22.6253469
-            ],
-            [
-              120.2697534,
-              22.6255529
-            ],
-            [
-              120.2698304,
-              22.6257729
-            ],
-            [
-              120.2699254,
-              22.6259149
-            ],
-            [
-              120.2702114,
-              22.6260999
-            ],
-            [
-              120.2701054,
-              22.6264129
-            ],
-            [
-              120.2702024,
-              22.6266269
-            ],
-            [
-              120.2702014,
-              22.6266669
-            ],
-            [
-              120.2701904,
-              22.6267159
-            ],
-            [
-              120.2701574,
-              22.6267719
-            ],
-            [
-              120.2700924,
-              22.6268299
-            ],
-            [
-              120.2700454,
-              22.6268779
-            ],
-            [
-              120.2700084,
-              22.6269289
-            ],
-            [
-              120.2699834,
-              22.6269849
-            ],
-            [
-              120.2699058,
-              22.6270305
-            ],
-            [
-              120.2698058,
-              22.6270416
-            ],
-            [
-              120.269631,
-              22.6270454
-            ],
-            [
-              120.2694525,
-              22.6271176
-            ],
-            [
-              120.2693787,
-              22.6271592
-            ],
-            [
-              120.2693184,
-              22.6272009
-            ],
-            [
-              120.2692734,
-              22.6272309
-            ]
-          ]
-        ]
-      },
-      "properties": {}
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              120.2662829,
-              22.6199526
-            ],
-            [
-              120.2661534,
-              22.6203398
-            ],
-            [
-              120.2660844,
-              22.6207064
-            ],
-            [
-              120.2658432,
-              22.620929
-            ],
-            [
-              120.2657443,
-              22.6211105
-            ],
-            [
-              120.2657355,
-              22.6213246
-            ],
-            [
-              120.2657601,
-              22.621671
-            ],
-            [
-              120.2657826,
-              22.6219869
-            ],
-            [
-              120.2658495,
-              22.6222696
-            ],
-            [
-              120.2658644,
-              22.6227614
-            ],
-            [
-              120.2660038,
-              22.6227548
-            ],
-            [
-              120.266005,
-              22.6229017
-            ],
-            [
-              120.2661376,
-              22.6229023
-            ],
-            [
-              120.2661547,
-              22.6234827
-            ],
-            [
-              120.2663426,
-              22.624056
-            ],
-            [
-              120.2664404,
-              22.6243545
-            ],
-            [
-              120.2666065,
-              22.6245184
-            ],
-            [
-              120.2667252,
-              22.6246355
-            ],
-            [
-              120.2668703,
-              22.6256118
-            ],
-            [
-              120.2671641,
-              22.6258611
-            ],
-            [
-              120.2673947,
-              22.626207
-            ],
-            [
-              120.2675349,
-              22.6264173
-            ],
-            [
-              120.2684016,
-              22.627582
-            ],
-            [
-              120.2662829,
-              22.6199526
-            ]
-          ]
-        ]
-      },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -5252,7 +4798,8 @@
         "name:en": "Fine Arts Building",
         "name:zh": "藝術大樓",
         "name:zh-Hans": "艺术大楼",
-        "name:zh-Hant": "藝術大樓"
+        "name:zh-Hant": "藝術大樓",
+        "hashtags": ["#文FA", "#FA"]
       }
     },
     {
@@ -5302,7 +4849,9 @@
         "name:zh": "文學院機車停車場",
         "name:zh-Hans": "文学院机车停车场",
         "name:zh-Hant": "文學院機車停車場",
-        "parking": "surface"
+        "parking": "surface",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -5346,7 +4895,14 @@
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -5393,7 +4949,14 @@
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
+      }
     },
     {
       "type": "Feature",
@@ -5449,7 +5012,8 @@
         "name:zh-Hant": "海洋科學學院",
         "operator": "國立中山大學",
         "smoking": "no",
-        "wheelchair": "yes"
+        "wheelchair": "yes",
+        "hashtags": []
       }
     },
     {
@@ -5487,7 +5051,9 @@
         "name:zh": "海科院網球場",
         "name:zh-Hans": "海科院网球场",
         "name:zh-Hant": "海科院網球場",
-        "sport": "tennis"
+        "sport": "tennis",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -5526,7 +5092,9 @@
         "name:zh": "海科院籃球場",
         "name:zh-Hans": "海科院篮球场",
         "name:zh-Hant": "海科院籃球場",
-        "sport": "basketball"
+        "sport": "basketball",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -5563,7 +5131,9 @@
         "name": "造波池",
         "name:zh": "造波池",
         "name:zh-Hans": "造波池",
-        "name:zh-Hant": "造波池"
+        "name:zh-Hant": "造波池",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -5585,13 +5155,37 @@
               22.6324828
             ],
             [
-              120.2616847,
-              22.6297901
+              120.2606192,
+              22.6324828
+            ],
+            [
+              120.2599167,
+              22.6331114
+            ],
+            [
+              120.2595662,
+              22.6339943
+            ],
+            [
+              120.259429,
+              22.6341071
+            ],
+            [
+              120.2592245,
+              22.633913
             ]
           ]
         ]
       },
-      "properties": {}
+      "properties": {
+        "building": "Beach",
+        "name": "西子灣沙灘",
+        "name:zh": "西子灣沙灘",
+        "name:zh-Hans": "西子灣沙灘",
+        "name:zh-Hant": "西子灣沙灘",
+        "hashtags": [],
+        "name:en": ""
+      }
     },
     {
       "type": "Feature",
@@ -5636,7 +5230,9 @@
         "name": "對面共同藝文空間",
         "name:zh": "對面共同藝文空間",
         "name:zh-Hans": "对面共同艺文空间",
-        "name:zh-Hant": "對面共同藝文空間"
+        "name:zh-Hant": "對面共同藝文空間",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -5694,7 +5290,8 @@
         "name:en": "Building of Marine Resources",
         "name:zh": "海洋資源館",
         "name:zh-Hans": "海洋资源馆",
-        "name:zh-Hant": "海洋資源館"
+        "name:zh-Hant": "海洋資源館",
+        "hashtags": ["#海MB", "#MB", "海資"]
       }
     },
     {
@@ -5869,7 +5466,8 @@
         "name:zh": "武嶺二村",
         "name:zh-Hans": "武岭二村",
         "name:zh-Hant": "武嶺二村",
-        "wheelchair": "limited"
+        "wheelchair": "limited",
+        "hashtags": []
       }
     },
     {
@@ -6076,7 +5674,172 @@
         "name:zh": "武嶺三村",
         "name:zh-Hans": "武嶺三村",
         "name:zh-Hant": "武嶺三村",
-        "wheelchair": "limited"
+        "wheelchair": "limited",
+        "hashtags": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              120.2641184,
+              22.6304218
+            ],
+            [
+              120.2641184,
+              22.6303822
+            ],
+            [
+              120.264156,
+              22.6303748
+            ],
+            [
+              120.2641587,
+              22.6303426
+            ],
+            [
+              120.2642525,
+              22.6303327
+            ],
+            [
+              120.2642552,
+              22.6303054
+            ],
+            [
+              120.2643115,
+              22.6303005
+            ],
+            [
+              120.2643142,
+              22.6302213
+            ],
+            [
+              120.2642794,
+              22.6302213
+            ],
+            [
+              120.2642794,
+              22.6301817
+            ],
+            [
+              120.2643169,
+              22.6301817
+            ],
+            [
+              120.2643169,
+              22.6300975
+            ],
+            [
+              120.2642686,
+              22.630095
+            ],
+            [
+              120.2642633,
+              22.6300579
+            ],
+            [
+              120.2641774,
+              22.6300579
+            ],
+            [
+              120.2641774,
+              22.6300257
+            ],
+            [
+              120.2641292,
+              22.6300257
+            ],
+            [
+              120.2641318,
+              22.6299762
+            ],
+            [
+              120.2641748,
+              22.6299737
+            ],
+            [
+              120.2641801,
+              22.6299514
+            ],
+            [
+              120.2643035,
+              22.6299489
+            ],
+            [
+              120.2643008,
+              22.6299712
+            ],
+            [
+              120.2643357,
+              22.6299712
+            ],
+            [
+              120.2643437,
+              22.6299985
+            ],
+            [
+              120.2643759,
+              22.629996
+            ],
+            [
+              120.264384,
+              22.6300257
+            ],
+            [
+              120.2644027,
+              22.6300257
+            ],
+            [
+              120.2644296,
+              22.630048
+            ],
+            [
+              120.2644322,
+              22.6303228
+            ],
+            [
+              120.2644027,
+              22.6303574
+            ],
+            [
+              120.2643625,
+              22.6303896
+            ],
+            [
+              120.2643169,
+              22.6304218
+            ],
+            [
+              120.2642847,
+              22.6304391
+            ],
+            [
+              120.2641882,
+              22.6304391
+            ],
+            [
+              120.2641587,
+              22.6304391
+            ],
+            [
+              120.2641184,
+              22.6304218
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "building": "university",
+        "name": "武嶺四村",
+        "name:en": "Male Dorm - Wu-ling Villa No.4",
+        "name:zh": "武嶺四村",
+        "name:zh-Hans": "武嶺四村",
+        "name:zh-Hant": "武嶺四村",
+        "wheelchair": "limited",
+        "hashtags": []
       }
     },
     {
@@ -6113,7 +5876,13 @@
         "fee": "no",
         "parking": "surface",
         "park_ride": "no",
-        "supervised": "no"
+        "supervised": "no",
+        "hashtags": [],
+        "name": "",
+        "name:en": "",
+        "name:zh": "",
+        "name:zh-Hans": "",
+        "name:zh-Hant": ""
       }
     },
     {
@@ -6160,7 +5929,9 @@
         "name:zh-Hans": "养殖池",
         "name:zh-Hant": "養殖池",
         "natural": "water",
-        "water": "basin"
+        "water": "basin",
+        "hashtags": [],
+        "name:en": ""
       }
     },
     {
@@ -6198,7 +5969,8 @@
         "name:en": "Building of Materials",
         "name:zh": "材料大樓",
         "name:zh-Hans": "材料大楼",
-        "name:zh-Hant": "材料大樓"
+        "name:zh-Hant": "材料大樓",
+        "hashtags": []
       }
     },
     {
@@ -6240,7 +6012,8 @@
         "name:en": "Building of Chemistry",
         "name:zh": "化學館",
         "name:zh-Hans": "化学馆",
-        "name:zh-Hant": "化學館"
+        "name:zh-Hant": "化學館",
+        "hashtags": []
       }
     },
     {
@@ -6278,7 +6051,8 @@
         "name:en": "Building of Physics",
         "name:zh": "物理館",
         "name:zh-Hans": "物理馆",
-        "name:zh-Hant": "物理館"
+        "name:zh-Hant": "物理館",
+        "hashtags": []
       }
     },
     {
@@ -6320,7 +6094,8 @@
         "name:en": "Building of Biological Sciences",
         "name:zh": "生科館",
         "name:zh-Hans": "生科馆",
-        "name:zh-Hant": "生科館"
+        "name:zh-Hant": "生科館",
+        "hashtags": []
       }
     }
   ]
